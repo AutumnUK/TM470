@@ -11,15 +11,14 @@ func _process(_delta: float) -> void:
 	
 	match selection :
 		1 :	textColour($"Start Game"	,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): Global.changeScene(STAGE1)
-		2 :	textColour($"High Scores"	,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): pass
-		3 :	textColour($"Options"		,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): Global.changeScene(OPTIONS)
-		4 :	textColour($"Quit"			,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): get_tree().quit()
+		2 :	textColour($"Options"		,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): Global.changeScene(OPTIONS)
+		3 :	textColour($"Quit"			,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): get_tree().quit()
 
 	if Input.is_action_just_pressed("Up"):  	selection -= 1	
 	if Input.is_action_just_pressed("Down"):  	selection += 1
 
-	if selection == 0: selection = 4
-	if selection == 5: selection = 1
+	if selection == 0: selection = 3
+	if selection == 4: selection = 1
 
 ### FUNCTIONS -- IGNORE ###
 # Changes the target RichTextLabel's default colour.
@@ -29,6 +28,5 @@ func textColour(target_node : RichTextLabel , target_colour : Color)  -> void:
 # Sets the default (gray) colours.
 func defaultColours() -> void:
 	textColour($"Start Game"	, DEFAULT_COLOUR)
-	textColour($"High Scores"	, DEFAULT_COLOUR)
 	textColour($"Options"		, DEFAULT_COLOUR)
 	textColour($"Quit"			, DEFAULT_COLOUR)	
